@@ -32,6 +32,9 @@ const playlistSlice = createSlice({
     toggleMusic: (state) => {
       state.isSongPlaying = state.isSongPlaying ? false : true;
     },
+    setIndex: (state, action) => {
+      state.currentIndex = action.payload;
+    }
   },
   extraReducers: (builder) => {
     builder.addCase(fetchPlaylist.pending, (state) => {
@@ -51,4 +54,4 @@ const playlistSlice = createSlice({
 });
 
 export default playlistSlice.reducer;
-export const { reset, stepDown, stepUp, toggleMusic } = playlistSlice.actions;
+export const { reset, stepDown, stepUp, toggleMusic, setIndex } = playlistSlice.actions;
